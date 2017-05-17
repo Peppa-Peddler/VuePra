@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+            body{
+                text-align: center;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+
+    <body>
+      <p style="border: 1px solid black; display: inline-block; font-size:
+      30px; padding: 5px 15px; cursor: pointer;" id="trigger">
+        Action
+      </p>
+      <div id="app2">
+          <p v-bind:title="message" v-if="cond">
+            {{ hello }}
+          </p>
+      </div>
+    </body>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="layer.js"></script>
+    <script>
+        document.getElementById("trigger").onclick = function(){
+            app.hello = app.hello + " > ";
+        };
+    </script>
+</html>
