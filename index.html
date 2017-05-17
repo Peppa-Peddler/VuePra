@@ -21,7 +21,16 @@
     </body>
 
     <script src="https://unpkg.com/vue"></script>
-    <script src="layer.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app2',
+            data: {
+                hello: 'Hello Jorge x!',
+                message: 'You loaded this page one' + new Date(),
+                cond: true
+            }
+        })
+    </script>
     <script>
         document.getElementById("trigger").onclick = function(){
             app.hello = app.hello + " > ";
