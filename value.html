@@ -1,0 +1,26 @@
+<html>
+<head>
+    <style>
+        .container{
+            max-width: 700px;
+            margin: 0 auto;
+        }
+    </style>    
+</head>
+<body>
+    <div id="app" class="container">
+        <p>
+            {{ message || "" }}
+        </p>
+    </div>
+</body>
+<script src='https://unpkg.com/vue'></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: "Hola a todos"
+        }
+    })
+</script>
+</html>

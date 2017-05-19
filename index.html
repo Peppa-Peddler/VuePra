@@ -5,18 +5,33 @@
                 text-align: center;
                 font-size: 30px;
             }
+            p{
+                margin-bottom: 5px;
+            }
+            .button{
+                border: 1px solid black; display: inline-block; font-size:30px; padding: 5px 15px; cursor: pointer;
+            }
+            .list{
+                display: inline;
+            }
         </style>
     </head>
 
     <body>
-      <p style="border: 1px solid black; display: inline-block; font-size:
-      30px; padding: 5px 15px; cursor: pointer;" id="trigger">
-        Action
-      </p>
       <div id="app2">
-          <p v-bind:title="message" v-if="cond">
+         <p v-on:click="populate" class="button">
+            Action
+         </p><br>
+         <p v-for="value in values" class="list">
+            {{ value.text }}
+         </p>
+         <p v-bind:title="message" v-if="cond">
             {{ hello }}
-          </p>
+         </p>
+         <p>
+            {{ input || "fill the input" }}
+         </p>
+         <input v-model="input">
       </div>
     </body>
 
@@ -27,13 +42,19 @@
             data: {
                 hello: 'Hello Jorge x!',
                 message: 'You loaded this page one' + new Date(),
-                cond: true
+                cond: true,
+                values: [
+                    {text: "val1"},
+                    {text: "val2"},
+                    {text: "val3"}
+                ],
+                input: "Hello and welcome"
+            },
+            methods: {
+                populate: function(){
+                    this.hello = this.hello + " > ";
+                }
             }
         })
-    </script>
-    <script>
-        document.getElementById("trigger").onclick = function(){
-            app.hello = app.hello + " > ";
-        };
     </script>
 </html>
